@@ -2,6 +2,8 @@ import {app, BrowserWindow} from "electron";
 import * as path from "path";
 import Ipc from "./ipc/ipc";
 import {AppDataSourceInit} from "./data-source";
+import {io as cio} from "socket.io-client";
+import SocketIo from "./server";
 
 function createWindow() {
     // Create the browser window.
@@ -27,6 +29,8 @@ app.whenReady().then(() => {
 
     new Ipc()
 
+    new SocketIo()
+
     app.on("activate", function () {
         // On macOS it's common to re-create a window in the app when the
         // dock icon is clicked and there are no other windows open.
@@ -39,3 +43,19 @@ app.on("window-all-closed", () => {
         app.quit();
     }
 });
+
+
+// client test
+const socketClient = cio('http://localhost:8080')
+socketClient.on("connect", () => {
+    console.log("connect");
+});
+
+socketClient.on("disconnect", () => {
+    console.log("disconnect");
+});
+
+socketClient.on("ping", () => {
+    socketClient.emit('pong')
+});
+
