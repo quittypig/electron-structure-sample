@@ -1,5 +1,6 @@
-import {app, BrowserWindow, ipcMain} from "electron";
+import {app, BrowserWindow} from "electron";
 import * as path from "path";
+import Ipc from "./ipc/ipc";
 
 function createWindow() {
     // Create the browser window.
@@ -10,10 +11,6 @@ function createWindow() {
         },
         width: 800,
     });
-
-    ipcMain.on('ping', () => {
-        console.log('ping') // will print value to Node console
-    })
 
     // and load the index.html of the app.
     mainWindow.loadFile(path.join(__dirname, "../../index.html"));
@@ -27,6 +24,8 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
     createWindow();
+
+    new Ipc()
 
     app.on("activate", function () {
         // On macOS it's common to re-create a window in the app when the
