@@ -1,35 +1,38 @@
 {
-  "name": "electron-quick-start-typescript",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "lint": "eslint -c .eslintrc --ext .ts ./src",
-    "start": "yarn build && electron ./dist/main/main.js"
-  },
-  "repository": "https://github.com/quittypig/electron-structure-sample",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo",
-    "typescript"
-  ],
-  "author": "quittypig",
-  "license": "",
-  "devDependencies": {
-    "@types/node": "^20.10.4",
-    "@typescript-eslint/eslint-plugin": "^6.14.0",
-    "@typescript-eslint/parser": "^6.14.0",
-    "electron": "^28.0.0",
-    "electron-builder": "^24.9.1",
-    "eslint": "^8.55.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "global": "^4.4.0"
-  }
+   "name": "electron-quick-start-typescript",
+   "version": "1.0.0",
+   "description": "",
+   "scripts": {
+      "build": "tsc",
+      "watch": "tsc -w",
+      "lint": "eslint -c .eslintrc --ext .ts ./src",
+      "start": "yarn build && electron ./dist/main/main.js",
+      "typeorm": "typeorm-ts-node-commonjs"
+   },
+   "repository": "https://github.com/quittypig/electron-structure-sample",
+   "keywords": [
+      "Electron",
+      "quick",
+      "start",
+      "tutorial",
+      "demo",
+      "typescript"
+   ],
+   "author": "quittypig",
+   "license": "",
+   "devDependencies": {
+      "@types/node": "^20.10.4",
+      "@typescript-eslint/eslint-plugin": "^6.14.0",
+      "@typescript-eslint/parser": "^6.14.0",
+      "electron": "^28.0.0",
+      "electron-builder": "^24.9.1",
+      "eslint": "^8.55.0",
+      "ts-node": "^10.9.2",
+      "typescript": "^5.3.3"
+   },
+   "dependencies": {
+      "global": "^4.4.0",
+      "mysql2": "^3.6.5",
+      "typeorm": "^0.3.17"
+   }
 }
